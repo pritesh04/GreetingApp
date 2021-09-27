@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -64,6 +65,12 @@ public class GreetinfRestController {
     public String addfName(@RequestParam String fName,@RequestParam String message){
         id +=1;
         return gret.addData(new Greeting(id, fName, "",message));
+    }
+
+
+    @PutMapping("/edit")
+    public String editMessageByid(@RequestParam int id,@RequestParam String message){
+        return gret.editMessageByid(id,message);
     }
     @PostMapping("/addDatalName")
     public String addDatalName(@RequestParam String lName,@RequestParam String message){
