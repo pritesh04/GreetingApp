@@ -55,6 +55,11 @@ public class GreetinfRestController {
         return gret.addData(new Greeting(id, fName, lName,message));
     }
 
+
+    @GetMapping("/getData")
+    public String getData(){
+        return gret.list.toString();
+    }
     @PostMapping("/addfName")
     public String addfName(@RequestParam String fName,@RequestParam String message){
         id +=1;
