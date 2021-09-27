@@ -49,21 +49,25 @@ public class GreetinfRestController {
    		return "Hello "+name;
    	}
 
-       @PostMapping("/addData")
-       public String addData(@RequestParam String fName,@RequestParam String lName ){
-           id +=1;
-           return gret.addData(new Greeting(id, fName, lName));
-       }
+    @PostMapping("/addData")
+    public String addData(@RequestParam String fName,@RequestParam String lName,@RequestParam String message){
+        id +=1;
+        return gret.addData(new Greeting(id, fName, lName,message));
+    }
 
-       @PostMapping("/addfName")
-       public String addfName(@RequestParam String fName){
-           id +=1;
-           return gret.addData(new Greeting(id, fName, ""));
-       }
-       @PostMapping("/addDatalName")
-       public String addDatalName(@RequestParam String lName ){
-           id +=1;
-           return gret.addData(new Greeting(id, " ", lName));
-       }
+    @PostMapping("/addfName")
+    public String addfName(@RequestParam String fName,@RequestParam String message){
+        id +=1;
+        return gret.addData(new Greeting(id, fName, "",message));
+    }
+    @PostMapping("/addDatalName")
+    public String addDatalName(@RequestParam String lName,@RequestParam String message){
+        id +=1;
+        return gret.addData(new Greeting(id, "", lName,message));
+    }
 
+    @GetMapping("/msgbyID")
+    public String greetingMessageByID(@RequestParam int id){     
+        return gret.greetingMessageByID(id);
+    }
 }
