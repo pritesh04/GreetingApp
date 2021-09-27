@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -76,6 +77,12 @@ public class GreetinfRestController {
     public String addDatalName(@RequestParam String lName,@RequestParam String message){
         id +=1;
         return gret.addData(new Greeting(id, "", lName,message));
+    }
+
+
+    @DeleteMapping("/deleteId")
+    public String deleteData(@RequestParam int id){
+        return gret.deleteData(id);
     }
 
     @GetMapping("/msgbyID")

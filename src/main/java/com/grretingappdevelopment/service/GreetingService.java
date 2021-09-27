@@ -23,6 +23,14 @@ public class GreetingService {
 		return list.get(id - 1).getMessage();
 	}
 
+	public String deleteData(int id) {
+		if (list.remove(list.get(id - 1))) {
+			return "Success";
+		} else {
+			return "failed";
+		}
+	}
+
 	public String editMessageByid(int id, String message) {
 		if (list.get(id - 1).setMessage(message)) {
 			return "Success";
