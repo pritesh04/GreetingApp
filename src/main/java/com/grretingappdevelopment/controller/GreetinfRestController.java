@@ -63,7 +63,7 @@ public class GreetinfRestController {
        @PostMapping("/addDatalName")
        public String addDatalName(@RequestParam String lName ){
            id +=1;
-           return gret.addData(new Greeting(id, "", lName));
+           return gret.addData(new Greeting(id, " ", lName));
        }
 
 }
